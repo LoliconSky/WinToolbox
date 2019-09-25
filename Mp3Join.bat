@@ -30,7 +30,7 @@ ECHO 请确认文件合并顺序是否正确！
 ECHO.
 PAUSE
 
-for /r %%f in (*.mp3) do if "%%~xf"==".mp3" set "file="%%~f"+!file!"
+for /f "delims=" %%f in ('dir /b/o-n *.MP3') do if "%%~xf"==".mp3" set "file="%%~f"+!file!"
 copy /b !file:~,-1! "All.mp3"
 
 ECHO.
